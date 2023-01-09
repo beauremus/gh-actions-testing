@@ -17,7 +17,6 @@ jobs:
         include:
           - python-version: "3.6.8"
           - os: "ubuntu-20.04"
-
     runs-on: ${{ matrix.os }}
 
     steps:
