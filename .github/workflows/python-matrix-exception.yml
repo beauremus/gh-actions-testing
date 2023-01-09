@@ -1,24 +1,41 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python package
+# name: Python package
 
-on: workflow_dispatch
+# on: workflow_dispatch
 
+# jobs:
+#   build:
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         python-version: ["3.7", "3.8", "3.9", "3.10"]
+#         os: ["ubuntu-latest"]
+#         # This weird hack allows us to use the matrix notation
+#         # but do a special run for the legacy Python and OS.
+#         include:
+#           - python-version: "3.6.8"
+#           - os: "ubuntu-20.04"
+#     runs-on: ${{ matrix.os }}
+
+#     steps:
+#     - run: echo ${{ matrix.os }}
+#     - run: echo ${{ matrix.python-version }}
+
+name: Sample Run Include Syntax
+# The trigger event
+on: push
 jobs:
-  build:
+  job1:
+    runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
-        os: ["ubuntu-latest"]
-        # This weird hack allows us to use the matrix notation
-        # but do a special run for the legacy Python and OS.
-        include:
-          - python-version: "3.6.8"
-          - os: "ubuntu-20.04"
-    runs-on: ${{ matrix.os }}
-
+        run: ['run1', 'run2'] # Defines two jobs to run
+        include: # Includes one more job
+          - run: 'run3'
     steps:
-    - run: echo ${{ matrix.os }}
-    - run: echo ${{ matrix.python-version }}
+    - run: echo Run ${{ matrix.run }}
+    - run: date
+    - run: sleep 1
+    - run: date
