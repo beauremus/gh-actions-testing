@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['run1', 'run2'] # Defines two jobs to run
+        python-version: ["3.7", "3.8", "3.9", "3.10"] # Defines two jobs to run
         include: # Includes one more job
-          - python-version: 'run3'
+          - python-version: "3.6.8"
     steps:
     - run: echo Run ${{ matrix.python-version }}
     - run: date
