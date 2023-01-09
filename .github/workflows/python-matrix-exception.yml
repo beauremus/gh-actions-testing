@@ -35,7 +35,7 @@ jobs:
         os: ["ubuntu-latest"]
         include: # Includes one more job
           - python-version: "3.6.8"
-          - os: "ubuntu-20.04"
+            os: "ubuntu-20.04"
     steps:
     - run: echo Run ${{ matrix.python-version }}
     - run: echo Run ${{ matrix.os }}
