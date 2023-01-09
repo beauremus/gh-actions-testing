@@ -25,7 +25,7 @@
 
 name: Sample Run Include Syntax
 # The trigger event
-on: push
+on: workflow_dispatch
 jobs:
   job1:
     runs-on: ubuntu-latest
