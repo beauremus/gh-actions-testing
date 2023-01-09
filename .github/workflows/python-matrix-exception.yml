@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        run: ['run1', 'run2'] # Defines two jobs to run
+        python-version: ['run1', 'run2'] # Defines two jobs to run
         include: # Includes one more job
-          - run: 'run3'
+          - python-version: 'run3'
     steps:
-    - run: echo Run ${{ matrix.run }}
+    - run: echo Run ${{ matrix.python-version }}
     - run: date
     - run: sleep 1
     - run: date
